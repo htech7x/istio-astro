@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: {{ .Values.prometheus.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  hosts:
+    - {{ .Values.prometheus.host }}
+  gateways:
+    - {{ .Values.gateway }}
+  http:
+    - route:
+        - destination:
+            host: {{ .Values.prometheus.destination }}
+            port:
+              number: {{ .Values.prometheus.port }}

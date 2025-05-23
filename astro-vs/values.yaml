@@ -1,0 +1,46 @@
+namespace: astronomer
+gateway: astronomer-gateway-tls
+
+alertmanager:
+  name: astronomer-alertmanager-istio
+  host: alertmanager.oleks.aws.astronomer-demo.com
+  destination: astronomer-alertmanager
+  port: 9093
+
+kibana:
+  name: astronomer-kibana-istio
+  host: kibana.oleks.aws.astronomer-demo.com
+  destination: astronomer-kibana
+  port: 5601
+
+prometheus:
+  name: astronomer-prometheus-istio
+  host: prometheus.oleks.aws.astronomer-demo.com
+  destination: astronomer-prometheus
+  port: 9090
+
+grafana:
+  name: astronomer-grafana-istio
+  host: grafana.oleks.aws.astronomer-demo.com
+  destination: astronomer-grafana
+  port: 3000
+
+houston:
+  name: astronomer-houston-istio
+  host: houston.oleks.aws.astronomer-demo.com
+  destination: astronomer-houston
+  port: 8871
+
+registry:
+  name: astronomer-registry-istio
+  host: registry.oleks.aws.astronomer-demo.com
+  destination: astronomer-registry
+  port: 5000
+
+public:
+  name: astronomer-public-istio
+  host1: app.oleks.aws.astronomer-demo.com
+  host2: oleks.aws.astronomer-demo.com
+  destination: astronomer-astro-ui
+  port: 8080
+

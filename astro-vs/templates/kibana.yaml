@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: {{ .Values.kibana.name}}
+  namespace: {{ .Values.namespace }}
+spec:
+  hosts:
+    - {{ .Values.kibana.host}}
+  gateways:
+    - {{ .Values.gateway }}
+  http:
+    - route:
+        - destination:
+            host: {{ .Values.kibana.destination}}
+            port:
+              number: {{.Values.kibana.port}}

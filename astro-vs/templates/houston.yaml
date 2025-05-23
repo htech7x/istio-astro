@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: {{ .Values.houston.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  hosts:
+    - {{ .Values.houston.host }}
+  gateways:
+    - {{ .Values.gateway }}
+  http:
+    - route:
+        - destination:
+            host: {{ .Values.houston.destination }}
+            port:
+              number: {{ .Values.houston.port }}
