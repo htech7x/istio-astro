@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
-  name: blue-dag-server-ingress
+  name: blue-dag-server-istio
   namespace: astronomer-blue
 spec:
   hosts:
