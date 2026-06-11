@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: blue-dag-server-ingress
+  namespace: astronomer-blue
+spec:
+  hosts:
+    - "deployments.oleks.aws.astronomer-demo.com"
+  gateways:
+    - astronomer/astronomer-gateway-tls # <--- use gw "astronomer-gateway-tls" from "astronomer" ns
+  http:
+    - match:
+        - uri:
+            prefix: /blue/dags
+#      rewrite:
+#        uri: /
+      route:
+        - destination:
+            host: blue-dag-server
+            port:
+              number: 8084
